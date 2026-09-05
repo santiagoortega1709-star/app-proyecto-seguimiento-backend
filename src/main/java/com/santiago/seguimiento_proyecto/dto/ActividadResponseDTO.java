@@ -12,7 +12,7 @@ public class ActividadResponseDTO {
     private Long id;
     private String nombre;
 
-    /** BAC — Budget at Completion */
+    /** BAC — Budget at Completion: presupuesto total planificado */
     private BigDecimal bac;
 
     /** Porcentaje de avance planificado a la fecha de corte (0-100) */
@@ -27,20 +27,32 @@ public class ActividadResponseDTO {
     /** EV — Earned Value = BAC * evPorcentaje / 100 */
     private BigDecimal ev;
 
-    /** AC — Actual Cost */
+    /** AC — Actual Cost: costo real incurrido hasta la fecha */
     private BigDecimal ac;
-
-    /** SV — Schedule Variance = EV - PV */
-    private BigDecimal sv;
 
     /** CV — Cost Variance = EV - AC */
     private BigDecimal cv;
 
-    /** SPI — Schedule Performance Index = EV / PV */
-    private BigDecimal spi;
+    /** SV — Schedule Variance = EV - PV */
+    private BigDecimal sv;
 
     /** CPI — Cost Performance Index = EV / AC */
     private BigDecimal cpi;
+
+    /** SPI — Schedule Performance Index = EV / PV */
+    private BigDecimal spi;
+
+    /** EAC — Estimate at Completion = BAC / CPI */
+    private BigDecimal eac;
+
+    /** VAC — Variance at Completion = BAC - EAC */
+    private BigDecimal vac;
+
+    /** Interpretación del CPI: "Bajo presupuesto", "Sobre presupuesto" o "En presupuesto" */
+    private String interpretacionCpi;
+
+    /** Interpretación del SPI: "Adelantado", "Atrasado" o "En cronograma" */
+    private String interpretacionSpi;
 
     private Long proyectoId;
 }

@@ -13,23 +13,41 @@ public class ProyectoResponseDTO {
     private Long id;
     private String nombre;
 
-    /** Suma de BAC de todas las actividades */
+    /** BAC total: suma de BAC de todas las actividades */
     private BigDecimal bacTotal;
 
-    /** Valor Planificado total (PV = suma de BAC * pvPorcentaje/100) */
+    /** PV total: suma de (BAC * pvPorcentaje / 100) de todas las actividades */
     private BigDecimal pvTotal;
 
-    /** Valor Ganado total (EV = suma de BAC * evPorcentaje/100) */
+    /** EV total: suma de (BAC * evPorcentaje / 100) de todas las actividades */
     private BigDecimal evTotal;
 
-    /** Costo Real total (AC = suma de AC de todas las actividades) */
+    /** AC total: suma de AC de todas las actividades */
     private BigDecimal acTotal;
 
-    /** SPI = EV / PV */
+    /** CV consolidado = EV - AC */
+    private BigDecimal cv;
+
+    /** SV consolidado = EV - PV */
+    private BigDecimal sv;
+
+    /** CPI consolidado = EV / AC */
+    private BigDecimal cpi;
+
+    /** SPI consolidado = EV / PV */
     private BigDecimal spi;
 
-    /** CPI = EV / AC */
-    private BigDecimal cpi;
+    /** EAC consolidado = BAC / CPI */
+    private BigDecimal eac;
+
+    /** VAC consolidado = BAC - EAC */
+    private BigDecimal vac;
+
+    /** Interpretación del CPI: "Bajo presupuesto", "Sobre presupuesto" o "En presupuesto" */
+    private String interpretacionCpi;
+
+    /** Interpretación del SPI: "Adelantado", "Atrasado" o "En cronograma" */
+    private String interpretacionSpi;
 
     private List<ActividadResponseDTO> actividades;
 }
